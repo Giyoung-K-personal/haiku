@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greek and Japanese</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+    }
+
+    #greekText {
+      font-size: 40em;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    #greekText:hover {
+      transform: scale(1.1);
+    }
+
+    #japaneseName {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="greekText" onclick="generateNewGreekLetter()">α</div>
+    <div id="japaneseName">アルファ</div>
+  </div>
+
+  <script>
+    function generateNewGreekLetter() {
+      var greekAlphabet = ["α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "ο", "π", "ρ", "σ", "τ", "υ", "φ", "χ", "ψ", "ω"];
+      var japaneseNames = ["アルファ", "ベータ", "ガンマ", "デルタ", "エプシロン", "ゼータ", "エータ", "シータ", "イオタ", "カッパ", "ラムダ", "ミュー", "ニュー", "クシー", "オミクロン", "パイ", "ロー", "シグマ", "タウ", "ウプシロン", "ファイ", "カイ", "プサイ", "オメガ"];
+      var randomIndex = Math.floor(Math.random() * greekAlphabet.length);
+      var newLetter = greekAlphabet[randomIndex];
+      var japaneseName = japaneseNames[randomIndex];
+      var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16); 
+      document.getElementById("greekText").textContent = newLetter;
+      document.getElementById("greekText").style.color = randomColor; 
+      document.getElementById("japaneseName").textContent = japaneseName;
+    }
+  </script>
+</body>
+</html>
